@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flytte rundt på en logo</title>
+    <style>
+        div.square {
+            border: 1px solid gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div.board {
+            display: grid;
+            grid-template-columns: repeat(2, 250px);
+            grid-template-rows: repeat(2, 120px);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DRY = Don't Repeat Yourself</h1>
+
+    <div id="app">
+    </div>
+
+    <script>
+showLogo(4);
+function showLogo(selectedSquareIndex) {
+    let img = '<img width="200" src="https://getacademy.no/hubfs/GET_RGB_logo-01-2.png" />';
+    let img1 = '';
+    let img2 = '';
+    let img3 = '';
+    let img4 = '';
+    if (selectedSquareIndex == 1) img1 = img;
+    else if (selectedSquareIndex == 2) img2 = img;
+    else if (selectedSquareIndex == 3) img3 = img;
+    else if (selectedSquareIndex == 4) img4 = img;
+
+    document.getElementById('app').innerHTML = /*HTML*/`
+        <div class="board">
+            <div class="square">1${img1}</div>
+            <div class="square">2${img2}</div>
+            <div class="square">3${img3}</div>
+            <div class="square">4${img4}</div>
+        </div>
+    `;
+}
+    </script>
+</body>
+
+</html>
